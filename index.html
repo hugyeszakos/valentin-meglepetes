@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Valentin napi meglepetés 💖</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'>
+<text y='20' font-size='20'>❤️</text>
+</svg>">
+<style>
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+/* Login box */
+#loginBox {
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    text-align: center;
+}
+
+input {
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid #ff6b81;
+    margin-top: 10px;
+}
+
+button {
+    margin-top: 15px;
+    padding: 10px 20px;
+    border-radius: 15px;
+    border: none;
+    background-color: #ff6b81;
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+button:hover {
+    background-color: #ff4757;
+}
+
+/* Main content */
+#content {
+    display: none;
+    text-align: center;
+    color: white;
+    padding: 20px;
+}
+
+h1 {
+    font-size: 40px;
+}
+
+.love-box {
+    background: rgba(255,255,255,0.2);
+    padding: 30px;
+    border-radius: 25px;
+    backdrop-filter: blur(10px);
+}
+
+/* Hearts animation */
+.heart {
+    position: absolute;
+    color: #ff4757;
+    font-size: 20px;
+    animation: float 6s linear infinite;
+}
+
+@keyframes float {
+    0% { transform: translateY(100vh) scale(0.5); opacity: 1;}
+    100% { transform: translateY(-10vh) scale(1.5); opacity: 0;}
+}
+</style>
+</head>
+
+<body>
+
+<div id="loginBox">
+    <h2>💖 Jelszó szükséges 💖</h2>
+    <p>Írd be a különleges dátumot...</p>
+    <input type="password" id="password" placeholder="Jelszó">
+    <br>
+    <button onclick="checkPassword()">Belépés</button>
+    <p id="error" style="color:red;"></p>
+</div>
+
+<div id="content">
+    <div class="love-box">
+        <h1>Boldog Valentin napot 💕</h1>
+        <h2>Cukim 💖 (Maja)</h2>
+        <p>
+          <p>
+Drága Szerelmem, Cukim 💖<br><br>
+
+Nem is tudom szavakba önteni, mennyire szeretlek. 
+Amióta az életem része vagy, minden nap szebb, minden pillanat különlegesebb. 
+A mosolyod az, ami beragyogja a napjaimat, az ölelésed az, ahol igazán otthon érzem magam. 🤍<br><br>
+
+2025.11.28 💞 – Egy dátum, ami örökre a szívembe van írva. 
+Az a nap, ami megváltoztatott mindent, és ami óta tudom, hogy te vagy az én igazi szerelmem.<br><br>
+
+Február 14 💘 – A szerelem ünnepe… 
+de számomra minden nap Valentin nap, mert minden nap szerethetlek téged.<br><br>
+
+Cukim, te nemcsak a szerelmem vagy, hanem a legjobb barátom, a biztonságom, 
+az álmom és a jövőm. Veled szeretnék nevetni, emlékeket gyűjteni, 
+és minden új napot együtt kezdeni.<br><br>
+
+Mindennél jobban szeretlek, Szerelmem. 💗<br>
+Örökké a tiéd.
+</p>
+        </p>
+    </div>
+</div>
+
+<script>
+function checkPassword() {
+    var pass = document.getElementById("password").value;
+    if(pass === "11.28") {
+        document.getElementById("loginBox").style.display = "none";
+        document.getElementById("content").style.display = "block";
+        createHearts();
+    } else {
+        document.getElementById("error").innerText = "Helytelen jelszó 💔";
+    }
+}
+
+function createHearts() {
+    setInterval(function() {
+        var heart = document.createElement("div");
+        heart.classList.add("heart");
+        heart.innerHTML = "❤";
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.fontSize = (Math.random() * 20 + 10) + "px";
+        document.body.appendChild(heart);
+
+        setTimeout(function() {
+            heart.remove();
+        }, 6000);
+    }, 300);
+}
+</script>
+
+</body>
+</html>
